@@ -1,0 +1,173 @@
+/* Reset default margin/padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body and Basic Layout */
+  body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    height: 100vh;
+    background-color: #f1f3f4;
+  }
+  
+  /* Navbar Styles */
+  .navbar {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+  }
+  
+  .navbar-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4285f4;
+    margin-right: 20px;
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #f1f3f4;
+    border-radius: 20px;
+    padding: 5px 10px;
+  }
+  
+  .search-bar input {
+    border: none;
+    background: transparent;
+    outline: none;
+    padding: 5px;
+    width: 200px;
+  }
+  
+  .search-bar .material-icons {
+    font-size: 20px;
+    color: #666;
+  }
+  
+  /* Navbar Right Section (profile, apps, notifications) */
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .navbar-right .material-icons {
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .profile-icon img {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    cursor: pointer;
+  }
+  
+  /* Sidebar Styles */
+  .sidebar {
+    background-color: #ffffff;
+    width: 240px;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    font-size: 16px;
+    color: #5f6368;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .sidebar ul li:hover {
+    background-color: #f1f3f4;
+  }
+  
+  .sidebar ul li .material-icons {
+    margin-right: 10px;
+    font-size: 18px;
+  }
+  
+  /* Main Content Area */
+  .main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #f1f3f4;
+  }
+  
+  .content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .new-file-btn {
+    padding: 10px 20px;
+    background-color: #4285f4;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .new-file-btn:hover {
+    background-color: #357ae8;
+  }
+  
+  .view-options {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .view-options .material-icons {
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  /* File Grid */
+  .file-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .file-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  
+  .file-item:hover {
+    transform: scale(1.05);
+  }
+  

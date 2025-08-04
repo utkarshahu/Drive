@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File Upload</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-r from-gray-100 to-gray-300 min-h-screen flex items-center justify-center p-8">
+
+  <!-- Upload Button -->
+  <button id="openUpload" class="px-6 py-3 flex items-center gap-2 text-white font-bold border-2 border-black rounded-full relative overflow-hidden bg-black hover:bg-transparent hover:text-black transition-all">
+    <i class="ri-upload-cloud-fill"></i> Upload
+  </button>
+
+
+  <!-- Dropzone Popup -->
+  <div id="uploadPopup" class="hidden fixed inset-0 backdrop-blur-sm bg-black/30 flex items-center justify-center z-50">
+    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-xl w-full max-w-lg relative animate-fadeIn">
+
+      <!-- Cross Icon Button -->
+      <button id="closeUpload" class="absolute top-3 right-3 text-gray-500 hover:text-black transition text-2xl">
+        <i class="ri-close-large-fill"></i>
+      </button>
+
+      <!-- Dropzone Form -->
+      <form id="dropzone" action="/upload-file" method="post" enctype="multipart/form-data" class="flex flex-col items-center">
+        <label for="dropzone-file" class="dropzone flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 dark:hover:bg-gray-800 dark:border-gray-600 dark:text-gray-400 transition-all">
+          <div class="flex flex-col items-center justify-center pt-5 pb-6">
+            <svg class="w-10 h-10 mb-4 text-gray-500" fill="none" viewBox="0 0 20 16" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5A5.5 5.5 0 0 0 5.2 5c-.07 0-.14-.017-.2-.017a4 4 0 0 0 0 8h2.17M10 15V6m0 0L8 8m2-2 2 2" />
+            </svg>
+            <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+            <p class="text-xs text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+          </div>
+          <input id="dropzone-file" name="file" type="file" class="hidden">
+        </label>
+
+        <!-- Upload Button Inside Popup -->
+        <button class="mt-4 px-6 py-3 flex items-center gap-2 text-white font-bold border-2 border-black rounded-full relative overflow-hidden bg-black hover:bg-transparent hover:text-black transition-all">
+          <i class="ri-upload-cloud-fill"></i> Upload
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <div class="files flex flex-col  gap-2">
+    <% files.forEach((file)=>{ %>
+    <div class="px-4 py-4 cursor-pointer m-2 rounded-full flex justify-between  bg-black text-white">
+      <h1><%= file.originalname %></h1>
+      <a href="/download/<%= file._id %>"  target="_blank" >
+        <i class="ri-download-fill"></i>
+      </a>
+    </div>
+    <% }) %>
+  </div>
+
+  <!-- JS for Toggle -->
+  <script>
+    const popup = document.getElementById('uploadPopup');
+    const dropzone = document.getElementById('dropzone');
+
+    document.getElementById('openUpload').addEventListener('click', () => {
+      popup.classList.remove('hidden');
+    });
+
+    document.getElementById('closeUpload').addEventListener('click', () => {
+      popup.classList.add('hidden');
+    });
+
+    // Close popup when clicking outside dropzone
+    popup.addEventListener('click', (event) => {
+      if (!dropzone.contains(event.target)) {
+        popup.classList.add('hidden');
+      }
+    });
+
+    // Drop Effect when dragging files
+    const dropZone = document.querySelector('.dropzone');
+    dropZone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      dropZone.classList.add('bg-gray-200');
+    });
+
+    dropZone.addEventListener('dragleave', () => {
+      dropZone.classList.remove('bg-gray-200');
+    });
+
+    dropZone.addEventListener('drop', () => {
+      dropZone.classList.remove('bg-gray-200');
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+</body>
+</html>

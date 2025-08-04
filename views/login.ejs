@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+  </head>
+  <body class="bg-gray-100 h-screen w-screen flex justify-center items-center bg-cover bg-top bg-no-repeat bg-[url('https://dr.savee-cdn.com/things/6/4/fc76f643220126ec0d6ab4.webp')] dark:bg-gray-800">
+
+    <form action="/user/login" method="post" class="w-[30rem] p-10 rounded-2xl bg-white/30 backdrop-blur-lg border border-white/40 shadow-lg">
+      <h2 class="text-white text-2xl font-semibold text-center mb-6">Login</h2>
+      
+      <div class="mb-6">
+        <label for="email" class="block mb-2 text-sm font-medium text-white">Email address</label>
+        <input type="email" id="email" name="email" class="bg-black border border-gray-700 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="john.doe@company.com" required />
+      </div>
+
+      <div class="mb-6">
+        <label for="password" class="block mb-2 text-sm font-medium text-white">Password</label>
+        <input type="password" id="password" name="password" class="bg-black border border-gray-700 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="•••••••••" required />
+      </div>
+
+      <span class="flex items-center justify-center">
+        <button class="rounded-full bg-black px-5 py-2 h-10 w-1/2 text-white active:bg-white active:text-black transition duration-300">
+          Login
+        </button>
+      </span>
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+  </body>
+</html>
