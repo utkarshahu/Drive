@@ -139,7 +139,7 @@ router.post(
 
       res.cookie('token',token)
 
-      res.send("Login successful ✅")
+      res.redirect("/home")
 
       
     } catch (err) {

@@ -50,7 +50,8 @@ router.post("/upload-file", authMiddleware, upload.single("file"), async (req, r
     });
 
    
-    res.json(newFile);
+    // res.json(newFile);
+    res.redirect("/home")
   } catch (err) {
     console.error("❌ Upload error:", err);
     res.status(500).json({ message: "Error uploading file", error: err.message });

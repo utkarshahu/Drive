@@ -15,11 +15,11 @@ const storage = new CloudinaryStorage({
     params: async (req, file) => {
         return {
             folder: 'drive',
-            public_id: file.originalname.split('.')[0],
+            public_id: `${file.originalname.split('.')[0]}_${Date.now()}`,
             resource_type: 'auto', // 🔥 Important to support all file types (images, videos, pdfs etc.)
             unique:true,
             type: "authenticated",
-            expires_at: timestamp,
+            expires_at:  Math.floor(Date.now() / 1000) + 60,
             sign_url: true
         };
     },
