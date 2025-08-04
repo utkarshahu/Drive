@@ -13,6 +13,12 @@ const authMiddleware = require("../middlewares/auth");
 
 const router = express.Router();
 
+// ✅ GET: Show Registration Page
+router.get("/", (req, res) => {
+  res.render("register.ejs");
+});
+
+
 // ✅ GET: Render Home Page with User's Files
 router.get("/home", authMiddleware, async (req, res) => {
   try {

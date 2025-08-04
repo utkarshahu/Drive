@@ -5,10 +5,14 @@ const userModel = require("../models/user.model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-// ✅ GET: Show Registration Page
-router.get("/register", (req, res) => {
+// ✅ Add this route
+router.get("/", (req, res) => {
   res.render("register.ejs");
 });
+
+
+
+
 
 // ✅ POST: Handle User Registration
 router.post(
